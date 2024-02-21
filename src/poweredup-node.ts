@@ -41,7 +41,9 @@ noble.on("stateChange", (state: string) => {
         }
         noble.on('scanStop', () => {
             setTimeout(() => {
-                startScanning();
+                if (wantScan) {
+                    startScanning();
+                }
             }, 1000);
         });
     } else {
